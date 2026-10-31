@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Licenciatura en Kinesiología & Fisiatría | Invitación</title>
+  
+  <!-- Typography Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Canvas Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <!-- Lucide Icons Library -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Configuration Script -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandTurquoise: {
+              300: '#8ae0db',
+              400: '#5dc1b9',
+              600: '#4eb5ad',
+              800: '#2c817b',
+              900: '#1d5b57',
+              950: '#123b39',
+            },
+            deepTurquoise: {
+              950: '#123b39',
+              900: '#1d5b57',
+              800: '#2c817b',
+              700: '#3b9c95',
+              600: '#4eb5ad',
+            },
+            champagne: {
+              100: '#fff6e5',
+              200: '#f7e7c4',
+              300: '#e8d29b',
+              400: '#d4b773',
+              500: '#c59f51',
+              600: '#a68037',
+              950: '#123b39',
+            }
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-sans antialiased text-slate-200 selection:bg-brandTurquoise-400 selection:text-brandTurquoise-950 py-8 sm:py-16">
+    <!-- HEADER / HERO SECTION -->
+    <header class="glass-panel rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden mb-10">
+      
+      <!-- Top Crest & Botanical Spine SVG -->
+      <div class="flex justify-center mb-6">
+        <div class="relative group cursor-pointer" onclick="spineInteraction()">
+          <svg class="w-32 h-32 sm:w-40 sm:h-40 text-champagne-400 spine-animate transition-transform duration-500" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Botanical Ring Background -->
+            <circle cx="100" cy="100" r="85" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" opacity="0.4"/>
+            <!-- Elegant Leaves -->
+            <path d="M40 100C40 70 65 45 95 40M160 100C160 130 135 155 105 160" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M35 80C45 82 50 72 50 72C50 72 40 62 35 80Z" fill="currentColor" opacity="0.6"/>
+            <path d="M165 120C155 118 150 128 150 128C150 128 160 138 165 120Z" fill="currentColor" opacity="0.6"/>
+            
+            <!-- Styled Spine (Golden Kinesiology Emblem) -->
+            <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M100 35V165" stroke-width="1.5" stroke-dasharray="2 3"/>
+              <!-- Vertebrae segments -->
+              <path d="M85 45C95 42 105 42 115 45M92 42L100 48L108 42"/>
+              <path d="M82 60C94 57 106 57 118 60M90 57L100 64L110 57"/>
+              <path d="M80 77C93 73 107 73 120 77M88 74L100 81L112 74"/>
+              <path d="M78 95C93 90 107 90 122 95M87 91L100 99L113 91"/>
+              <path d="M80 113C93 109 107 109 120 113M88 109L100 117L112 109"/>
+              <path d="M82 130C94 127 106 127 118 130M90 127L100 134L110 127"/>
+              <path d="M85 147C95 144 105 144 115 147M92 144L100 150L108 144"/>
+              <!-- Pelvis Base -->
+              <path d="M80 162C90 168 110 168 120 162" stroke-width="2.5"/>
+            </g>
+
+            <!-- Minimalist Graduation Cap -->
+            <path d="M100 18L65 30L100 42L135 30L100 18Z" fill="#123b39" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M77 34.5V46C77 50 123 50 123 46V34.5" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M128 32.5V52" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="128" cy="54" r="2.5" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Subtitle Badge -->
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-medium tracking-widest uppercase text-champagne-300 border border-champagne-400/30 bg-champagne-400/5 mb-4">
+        Defensa de Tesis & Celebración
+      </span>
+
+      <!-- Main Title -->
+      <h1 class="font-serif text-4xl sm:text-6xl font-light tracking-tight text-white mb-3">
+        ¡Me Recibo!
+      </h1>
+      
+      <h2 class="font-serif italic text-xl sm:text-2xl text-champagne-300 font-normal mb-6">
+        Licenciatura en Kinesiología & Fisiatría
+      </h2>
+
+      <p class="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto font-light leading-relaxed mb-8 border-t border-b border-champagne-400/20 py-4">
+        Tras años de dedicación, anatomía y esfuerzo, ha llegado el momento de dar el paso final. Me encantaría compartir este logro académico y su celebración con vos.
+      </p>
+
+      <!-- COUNTDOWN TIMER -->
+      <div class="pt-2">
+        <p class="text-[11px] font-semibold uppercase tracking-widest text-champagne-400/80 mb-4">
+          Tiempo restante para la defensa
+        </p>
+        <div class="grid grid-cols-4 gap-3 max-w-xs mx-auto text-center" id="countdown">
+          <div class="bg-deepTurquoise-950/80 p-3 rounded-2xl border border-champagne-400/20">
+            <span id="days" class="block font-serif text-2xl sm:text-3xl font-light text-champagne-200">00</span>
+            <span class="text-[9px] text-slate-400 uppercase tracking-wider">Días</span>
+          </div>
+          <div class="bg-deepTurquoise-950/80 p-3 rounded-2xl border border-champagne-400/20">
+            <span id="hours" class="block font-serif text-2xl sm:text-3xl font-light text-champagne-200">00</span>
+            <span class="text-[9px] text-slate-400 uppercase tracking-wider">Hs</span>
+          </div>
+          <div class="bg-deepTurquoise-950/80 p-3 rounded-2xl border border-champagne-400/20">
+            <span id="minutes" class="block font-serif text-2xl sm:text-3xl font-light text-champagne-200">00</span>
+            <span class="text-[9px] text-slate-400 uppercase tracking-wider">Min</span>
+          </div>
+          <div class="bg-deepTurquoise-950/80 p-3 rounded-2xl border border-champagne-400/20">
+            <span id="seconds" class="block font-serif text-2xl sm:text-3xl font-light text-champagne-200">00</span>
+            <span class="text-[9px] text-slate-400 uppercase tracking-wider">Seg</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT SECTIONS -->
+    <main class="space-y-8">
+
+      <!-- PARTE 1: ITINERARIO DE DEFENSA Y CARAVANA -->
+      <section class="glass-panel rounded-3xl p-6 sm:p-10 relative overflow-hidden transition-all duration-300 hover:border-champagne-400/40">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-champagne-400/5 rounded-full blur-2xl pointer-events-none"></div>
+
+        <!-- Header Card -->
+        <div class="flex items-center justify-between border-b border-champagne-400/20 pb-5 mb-8">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-champagne-400/20 to-transparent flex items-center justify-center border border-champagne-400/30 text-champagne-300 shadow-inner">
+              <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-champagne-400">Paso 01</span>
+              <h3 class="font-serif text-2xl sm:text-3xl text-white font-medium">Defensa & Tradicional Caravana</h3>
+            </div>
+          </div>
+          <span class="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-champagne-300 bg-champagne-400/10 px-3.5 py-1.5 rounded-full border border-champagne-400/25">
+            <i data-lucide="calendar" class="w-3.5 h-3.5"></i> Viernes 20 Nov
+          </span>
+        </div>
+
+        <!-- Timeline Visual -->
+        <div class="relative pl-6 sm:pl-8 border-l border-champagne-400/25 space-y-8">
+          
+          <!-- Timeline Item 1: La Defensa -->
+          <div class="relative group">
+            <div class="absolute -left-[31px] sm:-left-[39px] top-0 w-4 h-4 rounded-full bg-champagne-400 ring-4 ring-deepTurquoise-950 flex items-center justify-center shadow-lg"></div>
+            
+            <div class="bg-deepTurquoise-950/70 border border-champagne-400/20 rounded-2xl p-5 hover:border-champagne-400/40 transition">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <h4 class="text-white font-medium text-base sm:text-lg flex items-center gap-2">
+                  <i data-lucide="clock" class="w-4 h-4 text-champagne-400"></i> 11:00 hs — Encuentro en la Facultad
+                </h4>
+                <span class="text-[11px] text-slate-400 bg-deepTurquoise-900/80 px-2.5 py-1 rounded-lg border border-champagne-400/10">
+                  Horario estimado
+                </span>
+              </div>
+
+              <p class="text-xs sm:text-sm text-slate-300 mb-3 flex items-start gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4 text-champagne-400 shrink-0 mt-0.5"></i>
+                <span><strong>Lugar:</strong> Entrada principal — <span class="text-champagne-200">Avellaneda 3341</span></span>
+              </p>
+
+              <p class="text-xs text-slate-400 italic mb-4">
+                ⏳ Nota: El horario exacto de salida puede extenderse un poco según la duración de la exposición y la deliberación del jurado.
+              </p>
+
+              <!-- Important Rule Badge -->
+              <div class="bg-red-950/30 border border-red-500/30 p-3 rounded-xl flex items-center gap-3 text-xs text-red-200">
+                <i data-lucide="ban" class="w-4 h-4 text-red-400 shrink-0"></i>
+                <span><strong>Importante:</strong> Está prohibido arrojar harina, huevos o líquidos en la facultad.</span>
+              </div>
+
+              <!-- Copy Address Action -->
+              <div class="mt-4 pt-3 border-t border-champagne-400/10 flex flex-wrap gap-3">
+                <button onclick="copyAddress('Avellaneda 3341', 'Dirección de la Facultad copiada')" class="inline-flex items-center gap-2 text-xs text-champagne-300 hover:text-white bg-champagne-400/10 hover:bg-champagne-400/20 px-3.5 py-2 rounded-xl border border-champagne-400/20 transition">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copiar Dirección
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2: Caminata & Festejo -->
+          <div class="relative group">
+            <div class="absolute -left-[31px] sm:-left-[39px] top-0 w-4 h-4 rounded-full bg-champagne-400 ring-4 ring-deepTurquoise-950 shadow-lg"></div>
+
+            <div class="bg-gradient-to-br from-champagne-400/10 via-deepTurquoise-950 to-deepTurquoise-950 border border-champagne-400/30 rounded-2xl p-5 hover:border-champagne-400/50 transition shadow-xl">
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <h4 class="text-white font-medium text-base sm:text-lg flex items-center gap-2">
+                  <i data-lucide="footprints" class="w-5 h-5 text-champagne-400"></i> Caminata hacia el Descampado
+                </h4>
+              </div>
+
+              <p class="text-xs sm:text-sm text-slate-300 mb-4">
+                Al terminar la defensa, nos desplazamos caminando todos juntos hacia el punto de festejo libre en <strong>Salta y Castelli</strong>.
+              </p>
+
+              <!-- Funny Callout -->
+              <div class="bg-gradient-to-r from-champagne-400/20 to-transparent border-l-4 border-champagne-400 p-4 rounded-r-2xl text-xs sm:text-sm text-champagne-100 flex items-center gap-3">
+                <span class="text-2xl">🥚</span>
+                <div>
+                  <p class="font-semibold text-champagne-300 uppercase tracking-wider text-[10px]">¡Festejo sin censura!</p>
+                  <p class="text-white font-medium">Acá sí vale traer huevos podridos, harina, espuma y todo lo que consigan.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Quick Calendar Button -->
+        <div class="mt-8 text-center border-t border-champagne-400/15 pt-6">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Defensa+Tesis+Kinesiología&dates=20261120T140000Z/20261120T170000Z&details=Defensa+de+tesis+y+caravana+al+descampado&location=Avellaneda+3341" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold text-champagne-300 hover:text-white bg-deepTurquoise-950 px-5 py-2.5 rounded-xl border border-champagne-400/30 shadow-md transition hover:scale-105">
+            <i data-lucide="calendar-plus" class="w-4 h-4 text-champagne-400"></i> Agendar Defensa en Google Calendar
+          </a>
+        </div>
+      </section>
+
+      <!-- PARTE 2: LA CELEBRACIÓN OFICIAL (VIP PARTY CARD) -->
+      <section class="glass-panel rounded-3xl p-6 sm:p-10 relative overflow-hidden border-2 border-champagne-400/30 transition-all duration-300 hover:border-champagne-400/50">
+        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-champagne-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Header Card -->
+        <div class="flex items-center justify-between border-b border-champagne-400/20 pb-5 mb-8">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-champagne-400 to-champagne-600 flex items-center justify-center text-deepTurquoise-950 font-bold shadow-lg">
+              <i data-lucide="party-popper" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-champagne-400">Paso 02</span>
+              <h3 class="font-serif text-2xl sm:text-3xl text-white font-medium">La Celebración Oficial</h3>
+            </div>
+          </div>
+          <span class="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-champagne-950 bg-champagne-300 px-3.5 py-1.5 rounded-full shadow-lg">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Evento Oficial
+          </span>
+        </div>
+
+        <!-- Card Main Details Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          
+          <!-- Date & Time Card -->
+          <div class="bg-deepTurquoise-950/80 p-5 rounded-2xl border border-champagne-400/20 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-champagne-400 text-xs font-semibold uppercase tracking-wider mb-2">
+                <i data-lucide="calendar-days" class="w-4 h-4"></i> Día & Horario
+              </div>
+              <p class="text-white font-serif text-2xl font-light">Domingo 22 de Noviembre</p>
+              <p class="text-sm text-champagne-200 mt-1">13:00 hs a 17:00 hs <span class="text-xs text-slate-400">(aprox.)</span></p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-champagne-400/10">
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Celebración+Oficial+Recibida+Kinesiología&dates=20261122T160000Z/20261122T200000Z&details=Festejo+oficial.+Traer+bebida.&location=https://maps.app.goo.gl/5xdmVtrCNPHzcXNz7" target="_blank" class="text-xs text-champagne-300 hover:text-white inline-flex items-center gap-1.5 font-medium transition">
+                <i data-lucide="calendar-plus" class="w-3.5 h-3.5"></i> Agregar al Calendario
+              </a>
+            </div>
+          </div>
+
+          <!-- Drink Requirement Card (BYOB) -->
+          <div class="bg-gradient-to-br from-deepTurquoise-900 to-deepTurquoise-950 p-5 rounded-2xl border border-champagne-400/30 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute -right-4 -bottom-4 text-champagne-400/10">
+              <i data-lucide="wine" class="w-24 h-24"></i>
+            </div>
+            <div class="relative z-10">
+              <div class="flex items-center gap-2 text-champagne-400 text-xs font-semibold uppercase tracking-wider mb-2">
+                <i data-lucide="wine" class="w-4 h-4"></i> Consigna Infaltable
+              </div>
+              <p class="text-white font-medium text-lg"> Traé lo que vas a tomar</p>
+              <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                Habrá buena música y mucha alegría. Cada invitado es responsable de traer su bebida favorita para brindar.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Location Button Direct Card -->
+        <div class="bg-deepTurquoise-950/90 border border-champagne-400/25 p-6 rounded-2xl text-center flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="text-left">
+            <p class="text-xs text-champagne-400 font-semibold uppercase tracking-wider">Ubicación de la Fiesta</p>
+            <p class="text-white font-medium text-sm sm:text-base mt-0.5">Abrí el mapa para ver cómo llegar al lugar</p>
+          </div>
+
+          <a href="https://maps.app.goo.gl/5xdmVtrCNPHzcXNz7?g_st=aw" target="_blank" rel="noopener noreferrer" class="btn-gold shrink-0 w-full sm:w-auto px-7 py-3.5 rounded-xl font-semibold text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-2 shadow-xl">
+            <i data-lucide="map-pin" class="w-4 h-4"></i> Abrir Ubicación en Google Maps
+          </a>
+        </div>
+
+      </section>
+
+      <!-- RSVP / WHATSAPP ACTION -->
+      <section class="glass-panel rounded-3xl p-8 sm:p-10 text-center relative overflow-hidden border-2 border-champagne-400/40">
+        <div class="max-w-md mx-auto">
+          <span class="text-[10px] font-bold tracking-widest uppercase text-champagne-950 bg-champagne-400 px-4 py-1.5 rounded-full shadow-lg mb-4 inline-block">
+            Confirmación Necesaria
+          </span>
+
+          <h3 class="font-serif text-3xl sm:text-4xl text-white font-light mb-2">¿Me Acompañás?</h3>
+          <p class="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
+            Por favor, confirmá tu presencia antes del <br/>
+            <strong class="text-champagne-300 font-bold text-base underline underline-offset-4 decoration-champagne-400/50">18 de Noviembre</strong>.
+          </p>
+
+          <a href="https://wa.me/5492236665709?text=Hola%20Cami%2C%20confirmo%20para%20el%20Domingo%2022%21" target="_blank" class="btn-gold w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-semibold text-sm tracking-wide shadow-2xl">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            Confirmar Asistencia por WhatsApp
+          </a>
+
+        </div>
+      </section>
+
+
+    </main>
+
+  </div>
+
+  <!-- Custom JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>

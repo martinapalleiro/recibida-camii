@@ -1,0 +1,92 @@
+/* Turquoise Luxury Palette Background with exact hex colors #5dc1b9 & #8ae0db */
+body {
+  background: radial-gradient(circle at 50% 0%, #3b9c95 0%, #1d5b57 45%, #123b39 100%);
+  color: #e6f9f8;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Subtle Animated Turquesa & Golden Glow */
+.gold-glow {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(93, 193, 185, 0.18) 0%, rgba(138, 224, 219, 0.05) 50%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Editorial Glassmorphism with Turquoise Accents */
+.glass-panel {
+  background: rgba(29, 91, 87, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(138, 224, 219, 0.25);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+}
+
+.glass-panel-accent {
+  background: linear-gradient(145deg, rgba(59, 156, 149, 0.5), rgba(18, 59, 57, 0.8));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(93, 193, 185, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Turquoise Gradient Text */
+.turquoise-gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #8ae0db 40%, #5dc1b9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Champagne Gold Gradient Text */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #fff6e5 0%, #f7e7c4 30%, #d4b773 70%, #a68037 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-gradient {
+  border-image: linear-gradient(to right, #5dc1b9, rgba(212, 183, 115, 0.4), #8ae0db) 1;
+}
+
+/* Golden Shimmer Button */
+.btn-gold {
+  background: linear-gradient(135deg, #d4b773 0%, #c59f51 50%, #a68037 100%);
+  color: #123b39;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.btn-gold:hover {
+  box-shadow: 0 10px 25px rgba(93, 193, 185, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-gold::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent 30%, rgba(255, 255, 255, 0.4) 50%, transparent 70%);
+  transform: rotate(30deg);
+  animation: shimmer 5s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  100% { transform: translateX(100%) rotate(30deg); }
+}
+
+/* Spine Pulse Animation */
+@keyframes spinePulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(93, 193, 185, 0.4)); }
+  50% { transform: scale(1.03); filter: drop-shadow(0 0 20px rgba(138, 224, 219, 0.7)); }
+}
+
+.spine-animate {
+  animation: spinePulse 4s ease-in-out infinite;
+}
