@@ -317,8 +317,8 @@
 
           <!-- IFRAME OCULTO QUE PROCESA EL ENVÍO SIN RECARGAR LA PÁGINA -->
           <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(window.submitted) { showFormSuccess(); }"></iframe>
-
           <form id="rsvpForm" action="https://script.google.com/macros/s/AKfycbwbXW6oUTrWYK08-nBUt5BY3GD4Ib_pDehZhrO84qTGNOOmji6hlpojBC5zzfn7rDYhmA/exec" method="POST" target="hidden_iframe" onsubmit="handleRSVPSubmit();" class="space-y-5 text-left bg-deepTurquoise-950/60 p-6 rounded-2xl border border-champagne-400/20">
+
             <!-- Nombre -->
             <div>
               <label for="guestName" class="block text-xs font-semibold uppercase tracking-wider text-champagne-300 mb-2">
@@ -396,5 +396,25 @@
 
   <!-- Custom JavaScript File -->
   <script src="script.js"></script>
+
+  <script>
+  // Sobrescribe el manejo del envío para que no dependa de script.js
+  window.submitted = false;
+
+  function handleRSVPSubmit() {
+    window.submitted = true;
+    document.getElementById('formError').classList.add('hidden');
+    return true; // deja que el formulario se envíe al iframe oculto
+  }
+
+  function showFormSuccess() {
+    document.getElementById('rsvpForm').classList.add('hidden');
+    document.getElementById('formError').classList.add('hidden');
+    document.getElementById('formSuccess').classList.remove('hidden');
+    if (window.lucide) lucide.createIcons();
+    if (window.confetti) confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 } });
+  }
+</script>
+
 </body>
 </html>
