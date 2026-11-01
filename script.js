@@ -3,6 +3,52 @@ if (window.lucide) {
   lucide.createIcons();
 }
 
+// Variable para el control del iframe oculto
+var submitted = false;
+var submitTimeout;
+
+// Deshabilitar botón durante el envío
+function disableSubmitBtn() {
+  const submitBtn = document.getElementById('submitBtn');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Guardando...`;
+    if (window.lucide) lucide.createIcons();
+  }
+}
+
+// Mostrar mensaje de éxito al cargar el iframe
+function showFormSuccess() {
+  clearTimeout(submitTimeout);
+  document.getElementById('rsvpForm').classList.add('hidden');
+  document.getElementById('formSuccess').classList.remove('hidden');
+  triggerGoldConfetti();
+}
+
+function showFormError() {
+  submitted = false;
+  clearTimeout(submitTimeout);
+  const submitBtn = document.getElementById('submitBtn');
+  const formError = document.getElementById('formError');
+
+  if (submitBtn) {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = '<i data-lucide="send" class="w-4 h-4"></i> Reintentar';
+    if (window.lucide) lucide.createIcons();
+  }
+
+  if (formError) {
+    formError.classList.remove('hidden');
+  }
+}
+
+function handleRSVPSubmit() {
+  submitted = true;
+  disableSubmitBtn();
+  clearTimeout(submitTimeout);
+  submitTimeout = setTimeout(showFormError, 12000);
+}
+
 // Función de interacción al hacer clic en la columna vertebral
 function spineInteraction() {
   triggerGoldConfetti();
@@ -73,49 +119,3 @@ function updateCountdown() {
 // Iniciar actualización del contador
 setInterval(updateCountdown, 1000);
 updateCountdown();
-
-// Manejo del formulario RSVP conectado a Google Sheets vía JSONP / URL Query
-function submitRSVP(event) {
-  event.preventDefault();
-  
-  const name = document.getElementById('guestName').value;
-  const attend20 = document.querySelector('input[name="attend20"]:checked')?.value;
-  const attend22 = document.querySelector('input[name="attend22"]:checked')?.value;
-  const submitBtn = document.getElementById('submitBtn');
-  
-  if (!name || !attend20 || !attend22) return;
-  
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Guardando...`;
-  if (window.lucide) lucide.createIcons();
-
-  const baseUrl = 'https://script.google.com/macros/s/AKfycbwbXW6oUTrWYK08-nBUt5BY3GD4Ib_pDehZhrO84qTGNOOmji6hlpojBC5zzfn7rDYhmA/exec';
-  
-  // Creamos la URL con los parámetros GET (evita bloqueos de CORS en navegadores)
-  const queryUrl = `${baseUrl}?Nombre=${encodeURIComponent(name)}&Viernes20_Defensa=${encodeURIComponent(attend20)}&Domingo22_Fiesta=${encodeURIComponent(attend22)}`;
-
-  // Creamos un tag <script> dinámico para JSONP
-  const scriptTag = document.createElement('script');
-  scriptTag.src = queryUrl;
-  
-  // Callback cuando la respuesta se completa
-  scriptTag.onload = () => {
-    document.getElementById('rsvpForm').classList.add('hidden');
-    document.getElementById('formSuccess').classList.remove('hidden');
-    triggerGoldConfetti();
-    document.body.removeChild(scriptTag);
-  };
-
-  scriptTag.onerror = () => {
-    // Si falla JSONP intentamos fallback con Image Ping
-    const imgPing = new Image();
-    imgPing.src = queryUrl;
-    
-    document.getElementById('rsvpForm').classList.add('hidden');
-    document.getElementById('formSuccess').classList.remove('hidden');
-    triggerGoldConfetti();
-    if (document.body.contains(scriptTag)) document.body.removeChild(scriptTag);
-  };
-
-  document.body.appendChild(scriptTag);
-}

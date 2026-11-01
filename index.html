@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Licenciatura en Kinesiología & Fisiatría | Invitación</title>
-  
+
   <!-- Typography Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Canvas Confetti Library -->
@@ -60,9 +60,11 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="font-sans antialiased text-slate-200 selection:bg-brandTurquoise-400 selection:text-brandTurquoise-950 py-8 sm:py-16">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 relative">
+
     <!-- HEADER / HERO SECTION -->
     <header class="glass-panel rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden mb-10">
-      
+
       <!-- Top Crest & Botanical Spine SVG -->
       <div class="flex justify-center mb-6">
         <div class="relative group cursor-pointer" onclick="spineInteraction()">
@@ -73,7 +75,7 @@
             <path d="M40 100C40 70 65 45 95 40M160 100C160 130 135 155 105 160" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
             <path d="M35 80C45 82 50 72 50 72C50 72 40 62 35 80Z" fill="currentColor" opacity="0.6"/>
             <path d="M165 120C155 118 150 128 150 128C150 128 160 138 165 120Z" fill="currentColor" opacity="0.6"/>
-            
+
             <!-- Styled Spine (Golden Kinesiology Emblem) -->
             <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M100 35V165" stroke-width="1.5" stroke-dasharray="2 3"/>
@@ -107,7 +109,7 @@
       <h1 class="font-serif text-4xl sm:text-6xl font-light tracking-tight text-white mb-3">
         ¡Me Recibo!
       </h1>
-      
+
       <h2 class="font-serif italic text-xl sm:text-2xl text-champagne-300 font-normal mb-6">
         Licenciatura en Kinesiología & Fisiatría
       </h2>
@@ -167,11 +169,11 @@
 
         <!-- Timeline Visual -->
         <div class="relative pl-6 sm:pl-8 border-l border-champagne-400/25 space-y-8">
-          
+
           <!-- Timeline Item 1: La Defensa -->
           <div class="relative group">
             <div class="absolute -left-[31px] sm:-left-[39px] top-0 w-4 h-4 rounded-full bg-champagne-400 ring-4 ring-deepTurquoise-950 flex items-center justify-center shadow-lg"></div>
-            
+
             <div class="bg-deepTurquoise-950/70 border border-champagne-400/20 rounded-2xl p-5 hover:border-champagne-400/40 transition">
               <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
                 <h4 class="text-white font-medium text-base sm:text-lg flex items-center gap-2">
@@ -194,7 +196,7 @@
               <!-- Important Rule Badge -->
               <div class="bg-red-950/30 border border-red-500/30 p-3 rounded-xl flex items-center gap-3 text-xs text-red-200">
                 <i data-lucide="ban" class="w-4 h-4 text-red-400 shrink-0"></i>
-                <span><strong>Importante:</strong> Está prohibido arrojar harina, huevos o líquidos en la facultad.</span>
+                <span><strong>Importante:</strong> Está estrictamente prohibido arrojar harina, huevos o líquidos dentro de la facultad.</span>
               </div>
 
               <!-- Copy Address Action -->
@@ -264,7 +266,7 @@
 
         <!-- Card Main Details Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          
+
           <!-- Date & Time Card -->
           <div class="bg-deepTurquoise-950/80 p-5 rounded-2xl border border-champagne-400/20 flex flex-col justify-between col-span-1 md:col-span-2">
             <div>
@@ -298,7 +300,7 @@
 
       </section>
 
-      <!-- RSVP / INTERACTIVE FORM FOR GOOGLE DRIVE / SHEETS -->
+      <!-- RSVP / INTERACTIVE FORM -->
       <section class="glass-panel rounded-3xl p-8 sm:p-10 relative overflow-hidden border-2 border-champagne-400/40">
         <div class="max-w-lg mx-auto">
           <div class="text-center mb-6">
@@ -313,13 +315,16 @@
             </p>
           </div>
 
-          <form id="rsvpForm" onsubmit="submitRSVP(event)" class="space-y-5 text-left bg-deepTurquoise-950/60 p-6 rounded-2xl border border-champagne-400/20">
+          <!-- IFRAME OCULTO QUE PROCESA EL ENVÍO SIN RECARGAR LA PÁGINA -->
+          <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(window.submitted) { showFormSuccess(); }"></iframe>
+
+          <form id="rsvpForm" action="https://script.google.com/macros/s/AKfycbwbXW6oUTrWYK08-nBUt5BY3GD4Ib_pDehZhrO84qTGNOOmji6hlpojBC5zzfn7rDYhmA/exec" method="POST" target="hidden_iframe" onsubmit="handleRSVPSubmit();" class="space-y-5 text-left bg-deepTurquoise-950/60 p-6 rounded-2xl border border-champagne-400/20">
             <!-- Nombre -->
             <div>
               <label for="guestName" class="block text-xs font-semibold uppercase tracking-wider text-champagne-300 mb-2">
                 Nombre Completo *
               </label>
-              <input type="text" id="guestName" required placeholder="Ej: Maria Perez" class="w-full bg-deepTurquoise-900/90 border border-champagne-400/30 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-champagne-400 transition" />
+              <input type="text" id="guestName" name="nombre" required placeholder="Ej: Maria Perez" class="w-full bg-deepTurquoise-900/90 border border-champagne-400/30 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-champagne-400 transition" />
             </div>
 
             <!-- Confirmación Viernes 20 -->
@@ -329,11 +334,11 @@
               </label>
               <div class="grid grid-cols-2 gap-3">
                 <label class="flex items-center gap-2 bg-deepTurquoise-900/70 p-3 rounded-xl border border-champagne-400/20 cursor-pointer hover:border-champagne-400/50 transition">
-                  <input type="radio" name="attend20" value="Sí" required class="accent-brandTurquoise-400" />
-                  <span class="text-xs text-white">¡Sí, voy!</span>
+                  <input type="radio" name="viernes" value="Sí asiste" required class="accent-brandTurquoise-400" />
+                  <span class="text-xs text-white">¡Sí, voy! 🎉</span>
                 </label>
                 <label class="flex items-center gap-2 bg-deepTurquoise-900/70 p-3 rounded-xl border border-champagne-400/20 cursor-pointer hover:border-champagne-400/50 transition">
-                  <input type="radio" name="attend20" value="No" required class="accent-brandTurquoise-400" />
+                  <input type="radio" name="viernes" value="No asiste" required class="accent-brandTurquoise-400" />
                   <span class="text-xs text-slate-300">No puedo 😔</span>
                 </label>
               </div>
@@ -342,25 +347,29 @@
             <!-- Confirmación Domingo 22 -->
             <div>
               <label class="block text-xs font-semibold uppercase tracking-wider text-champagne-300 mb-2">
-                🥂 Domingo 22 Nov — Fiesta Oficial (13:00 hs)
+                🍾 Domingo 22 Nov — Celebración Oficial (13:00 hs)
               </label>
               <div class="grid grid-cols-2 gap-3">
                 <label class="flex items-center gap-2 bg-deepTurquoise-900/70 p-3 rounded-xl border border-champagne-400/20 cursor-pointer hover:border-champagne-400/50 transition">
-                  <input type="radio" name="attend22" value="Sí" required class="accent-brandTurquoise-400" />
-                  <span class="text-xs text-white">¡Sí, voy!</span>
+                  <input type="radio" name="domingo" value="Sí asiste" required class="accent-brandTurquoise-400" />
+                  <span class="text-xs text-white">¡Sí, voy! 🍾</span>
                 </label>
                 <label class="flex items-center gap-2 bg-deepTurquoise-900/70 p-3 rounded-xl border border-champagne-400/20 cursor-pointer hover:border-champagne-400/50 transition">
-                  <input type="radio" name="attend22" value="No" required class="accent-brandTurquoise-400" />
+                  <input type="radio" name="domingo" value="No asiste" required class="accent-brandTurquoise-400" />
                   <span class="text-xs text-slate-300">No puedo 😔</span>
                 </label>
               </div>
             </div>
 
-            <!-- Submit Button -->
-            <button type="submit" id="submitBtn" class="btn-gold w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-xs sm:text-sm uppercase tracking-wider shadow-xl mt-4">
-              <i data-lucide="send" class="w-4 h-4"></i> Confirmar Asistencia
+            <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-champagne-400 to-champagne-600 text-deepTurquoise-950 font-semibold text-xs sm:text-sm tracking-wider uppercase py-3.5 rounded-xl shadow-xl hover:scale-[1.02] transition">
+              Confirmar Asistencia
             </button>
           </form>
+
+          <div id="formError" class="hidden bg-red-950/80 border border-red-500/40 p-4 rounded-2xl text-center mt-4">
+            <p class="text-red-200 text-sm">No se pudo enviar la confirmación. Verificá la conexión y reintentá.</p>
+            <p class="text-xs text-red-300/80 mt-1">La planilla puede no estar publicada para recibir respuestas.</p>
+          </div>
 
           <!-- Feedback Success Message -->
           <div id="formSuccess" class="hidden bg-emerald-950/80 border border-emerald-500/40 p-6 rounded-2xl text-center mt-4 space-y-2">
@@ -368,11 +377,19 @@
               <i data-lucide="check" class="w-6 h-6"></i>
             </div>
             <p class="text-white font-serif text-xl">¡Gracias por confirmar!</p>
-            <p class="text-xs text-slate-300">Tus datos han sido registrados correctamente.</p>
+            <p class="text-xs text-slate-300">Tus datos han sido registrados correctamente en la planilla.</p>
           </div>
 
         </div>
       </section>
+
+      <!-- CELEBRATORY CONFETTI BUTTON -->
+      <div class="text-center pt-2">
+        <button onclick="triggerGoldConfetti()" class="px-6 py-3 rounded-full bg-deepTurquoise-950/90 hover:bg-deepTurquoise-900 border border-champagne-400/30 text-champagne-300 hover:text-champagne-200 text-xs font-semibold tracking-wider uppercase transition flex items-center gap-2 mx-auto shadow-lg hover:scale-105">
+          <i data-lucide="sparkles" class="w-4 h-4 text-champagne-400"></i> Llenar la pantalla de Confeti
+        </button>
+      </div>
+
     </main>
 
   </div>
