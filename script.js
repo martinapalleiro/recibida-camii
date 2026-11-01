@@ -3,52 +3,6 @@ if (window.lucide) {
   lucide.createIcons();
 }
 
-// Variable para el control del iframe oculto
-var submitted = false;
-var submitTimeout;
-
-// Deshabilitar botón durante el envío
-function disableSubmitBtn() {
-  const submitBtn = document.getElementById('submitBtn');
-  if (submitBtn) {
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Guardando...`;
-    if (window.lucide) lucide.createIcons();
-  }
-}
-
-// Mostrar mensaje de éxito al cargar el iframe
-function showFormSuccess() {
-  clearTimeout(submitTimeout);
-  document.getElementById('rsvpForm').classList.add('hidden');
-  document.getElementById('formSuccess').classList.remove('hidden');
-  triggerGoldConfetti();
-}
-
-function showFormError() {
-  submitted = false;
-  clearTimeout(submitTimeout);
-  const submitBtn = document.getElementById('submitBtn');
-  const formError = document.getElementById('formError');
-
-  if (submitBtn) {
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = '<i data-lucide="send" class="w-4 h-4"></i> Reintentar';
-    if (window.lucide) lucide.createIcons();
-  }
-
-  if (formError) {
-    formError.classList.remove('hidden');
-  }
-}
-
-function handleRSVPSubmit() {
-  submitted = true;
-  disableSubmitBtn();
-  clearTimeout(submitTimeout);
-  submitTimeout = setTimeout(showFormError, 12000);
-}
-
 // Función de interacción al hacer clic en la columna vertebral
 function spineInteraction() {
   triggerGoldConfetti();
