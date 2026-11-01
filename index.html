@@ -26,17 +26,17 @@
             brandTurquoise: {
               300: '#8ae0db',
               400: '#5dc1b9',
-              600: '#4eb5ad',
-              800: '#2c817b',
-              900: '#1d5b57',
-              950: '#123b39',
+              600: '#3ba49c',
+              800: '#1e5f5a',
+              900: '#113c38',
+              950: '#082321',
             },
             deepTurquoise: {
-              950: '#123b39',
-              900: '#1d5b57',
-              800: '#2c817b',
-              700: '#3b9c95',
-              600: '#4eb5ad',
+              950: '#082321',
+              900: '#113c38',
+              800: '#1e5f5a',
+              700: '#2c817b',
+              600: '#3ba49c',
             },
             champagne: {
               100: '#fff6e5',
@@ -45,7 +45,6 @@
               400: '#d4b773',
               500: '#c59f51',
               600: '#a68037',
-              950: '#123b39',
             }
           },
           fontFamily: {
@@ -91,7 +90,7 @@
             </g>
 
             <!-- Minimalist Graduation Cap -->
-            <path d="M100 18L65 30L100 42L135 30L100 18Z" fill="#123b39" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M100 18L65 30L100 42L135 30L100 18Z" fill="#072a30" stroke="currentColor" stroke-width="1.5"/>
             <path d="M77 34.5V46C77 50 123 50 123 46V34.5" stroke="currentColor" stroke-width="1.2"/>
             <path d="M128 32.5V52" stroke="currentColor" stroke-width="1.2"/>
             <circle cx="128" cy="54" r="2.5" fill="currentColor"/>
@@ -267,7 +266,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           
           <!-- Date & Time Card -->
-          <div class="bg-deepTurquoise-950/80 p-5 rounded-2xl border border-champagne-400/20 flex flex-col justify-between">
+          <div class="bg-deepTurquoise-950/80 p-5 rounded-2xl border border-champagne-400/20 flex flex-col justify-between col-span-1 md:col-span-2">
             <div>
               <div class="flex items-center gap-2 text-champagne-400 text-xs font-semibold uppercase tracking-wider mb-2">
                 <i data-lucide="calendar-days" class="w-4 h-4"></i> Día & Horario
@@ -275,26 +274,10 @@
               <p class="text-white font-serif text-2xl font-light">Domingo 22 de Noviembre</p>
               <p class="text-sm text-champagne-200 mt-1">13:00 hs a 17:00 hs <span class="text-xs text-slate-400">(aprox.)</span></p>
             </div>
-            <div class="mt-4 pt-3 border-t border-champagne-400/10">
-              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Celebración+Oficial+Recibida+Kinesiología&dates=20261122T160000Z/20261122T200000Z&details=Festejo+oficial.+Traer+bebida.&location=https://maps.app.goo.gl/5xdmVtrCNPHzcXNz7" target="_blank" class="text-xs text-champagne-300 hover:text-white inline-flex items-center gap-1.5 font-medium transition">
+            <div class="mt-4 pt-3 border-t border-champagne-400/10 flex items-center justify-between">
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Celebración+Oficial+Recibida+Kinesiología&dates=20261122T160000Z/20261122T200000Z&details=Festejo+oficial.&location=Huarpes+entre+Moctezuma+y+Mangore" target="_blank" class="text-xs text-champagne-300 hover:text-white inline-flex items-center gap-1.5 font-medium transition">
                 <i data-lucide="calendar-plus" class="w-3.5 h-3.5"></i> Agregar al Calendario
               </a>
-            </div>
-          </div>
-
-          <!-- Drink Requirement Card (BYOB) -->
-          <div class="bg-gradient-to-br from-deepTurquoise-900 to-deepTurquoise-950 p-5 rounded-2xl border border-champagne-400/30 flex flex-col justify-between relative overflow-hidden">
-            <div class="absolute -right-4 -bottom-4 text-champagne-400/10">
-              <i data-lucide="wine" class="w-24 h-24"></i>
-            </div>
-            <div class="relative z-10">
-              <div class="flex items-center gap-2 text-champagne-400 text-xs font-semibold uppercase tracking-wider mb-2">
-                <i data-lucide="wine" class="w-4 h-4"></i> Consigna Infaltable
-              </div>
-              <p class="text-white font-medium text-lg"> Traé lo que vas a tomar</p>
-              <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                Habrá buena música y mucha alegría. Cada invitado es responsable de traer su bebida favorita para brindar.
-              </p>
             </div>
           </div>
 
@@ -304,38 +287,92 @@
         <div class="bg-deepTurquoise-950/90 border border-champagne-400/25 p-6 rounded-2xl text-center flex flex-col sm:flex-row items-center justify-between gap-4">
           <div class="text-left">
             <p class="text-xs text-champagne-400 font-semibold uppercase tracking-wider">Ubicación de la Fiesta</p>
-            <p class="text-white font-medium text-sm sm:text-base mt-0.5">Abrí el mapa para ver cómo llegar al lugar</p>
+            <p class="text-white font-medium text-base mt-0.5">Huarpes entre Moctezuma y Mangoré</p>
+            <p class="text-xs text-slate-400">Tocá el botón para abrir el mapa y ver cómo llegar</p>
           </div>
 
           <a href="https://maps.app.goo.gl/5xdmVtrCNPHzcXNz7?g_st=aw" target="_blank" rel="noopener noreferrer" class="btn-gold shrink-0 w-full sm:w-auto px-7 py-3.5 rounded-xl font-semibold text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-2 shadow-xl">
-            <i data-lucide="map-pin" class="w-4 h-4"></i> Abrir Ubicación en Google Maps
+            <i data-lucide="map-pin" class="w-4 h-4"></i> Abrir en Google Maps
           </a>
         </div>
 
       </section>
 
-      <!-- RSVP / WHATSAPP ACTION -->
-      <section class="glass-panel rounded-3xl p-8 sm:p-10 text-center relative overflow-hidden border-2 border-champagne-400/40">
-        <div class="max-w-md mx-auto">
-          <span class="text-[10px] font-bold tracking-widest uppercase text-champagne-950 bg-champagne-400 px-4 py-1.5 rounded-full shadow-lg mb-4 inline-block">
-            Confirmación Necesaria
-          </span>
+      <!-- RSVP / INTERACTIVE FORM FOR GOOGLE DRIVE / SHEETS -->
+      <section class="glass-panel rounded-3xl p-8 sm:p-10 relative overflow-hidden border-2 border-champagne-400/40">
+        <div class="max-w-lg mx-auto">
+          <div class="text-center mb-6">
+            <span class="text-[10px] font-bold tracking-widest uppercase text-champagne-950 bg-champagne-400 px-4 py-1.5 rounded-full shadow-lg mb-3 inline-block">
+              Confirmación de Asistencia
+            </span>
 
-          <h3 class="font-serif text-3xl sm:text-4xl text-white font-light mb-2">¿Me Acompañás?</h3>
-          <p class="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
-            Por favor, confirmá tu presencia antes del <br/>
-            <strong class="text-champagne-300 font-bold text-base underline underline-offset-4 decoration-champagne-400/50">18 de Noviembre</strong>.
-          </p>
+            <h3 class="font-serif text-3xl sm:text-4xl text-white font-light mb-2">¿Nos Acompañás?</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Por favor, completá el siguiente formulario antes del <br/>
+              <strong class="text-champagne-300 font-bold text-base underline underline-offset-4 decoration-champagne-400/50">18 de Noviembre</strong>.
+            </p>
+          </div>
 
-          <a href="https://wa.me/5492236665709?text=Hola%20Cami%2C%20confirmo%20para%20el%20Domingo%2022%21" target="_blank" class="btn-gold w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-semibold text-sm tracking-wide shadow-2xl">
-            <i data-lucide="message-circle" class="w-5 h-5"></i>
-            Confirmar Asistencia por WhatsApp
-          </a>
+          <form id="rsvpForm" onsubmit="submitRSVP(event)" class="space-y-5 text-left bg-deepTurquoise-950/60 p-6 rounded-2xl border border-champagne-400/20">
+            <!-- Nombre -->
+            <div>
+              <label for="guestName" class="block text-xs font-semibold uppercase tracking-wider text-champagne-300 mb-2">
+                Nombre Completo *
+              </label>
+              <input type="text" id="guestName" required placeholder="Ej: Maria Perez" class="w-full bg-deepTurquoise-900/90 border border-champagne-400/30 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-champagne-400 transition" />
+            </div>
+
+            <!-- Confirmación Viernes 20 -->
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-champagne-300 mb-2">
+                🎓 Viernes 20 Nov — Defensa & Caravana (11:00 hs)
+              </label>
+              <div class="grid grid-cols-2 gap-3">
+                <label class="flex items-center gap-2 bg-deepTurquoise-900/70 p-3 rounded-xl border border-champagne-400/20 cursor-pointer hover:border-champagne-400/50 transition">
+                  <input type="radio" name="attend20" value="Sí" required class="accent-brandTurquoise-400" />
+                  <span class="text-xs text-white">¡Sí, voy!</span>
+                </label>
+                <label class="flex items-center gap-2 bg-deepTurquoise-900/70 p-3 rounded-xl border border-champagne-400/20 cursor-pointer hover:border-champagne-400/50 transition">
+                  <input type="radio" name="attend20" value="No" required class="accent-brandTurquoise-400" />
+                  <span class="text-xs text-slate-300">No puedo 😔</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Confirmación Domingo 22 -->
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-champagne-300 mb-2">
+                🥂 Domingo 22 Nov — Fiesta Oficial (13:00 hs)
+              </label>
+              <div class="grid grid-cols-2 gap-3">
+                <label class="flex items-center gap-2 bg-deepTurquoise-900/70 p-3 rounded-xl border border-champagne-400/20 cursor-pointer hover:border-champagne-400/50 transition">
+                  <input type="radio" name="attend22" value="Sí" required class="accent-brandTurquoise-400" />
+                  <span class="text-xs text-white">¡Sí, voy!</span>
+                </label>
+                <label class="flex items-center gap-2 bg-deepTurquoise-900/70 p-3 rounded-xl border border-champagne-400/20 cursor-pointer hover:border-champagne-400/50 transition">
+                  <input type="radio" name="attend22" value="No" required class="accent-brandTurquoise-400" />
+                  <span class="text-xs text-slate-300">No puedo 😔</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="submitBtn" class="btn-gold w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-xs sm:text-sm uppercase tracking-wider shadow-xl mt-4">
+              <i data-lucide="send" class="w-4 h-4"></i> Confirmar Asistencia
+            </button>
+          </form>
+
+          <!-- Feedback Success Message -->
+          <div id="formSuccess" class="hidden bg-emerald-950/80 border border-emerald-500/40 p-6 rounded-2xl text-center mt-4 space-y-2">
+            <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center">
+              <i data-lucide="check" class="w-6 h-6"></i>
+            </div>
+            <p class="text-white font-serif text-xl">¡Gracias por confirmar!</p>
+            <p class="text-xs text-slate-300">Tus datos han sido registrados correctamente.</p>
+          </div>
 
         </div>
       </section>
-
-
     </main>
 
   </div>

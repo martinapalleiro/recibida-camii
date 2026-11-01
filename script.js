@@ -1,4 +1,3 @@
-// Inicializar íconos de Lucide
 if (window.lucide) {
   lucide.createIcons();
 }
@@ -8,14 +7,14 @@ function spineInteraction() {
   triggerGoldConfetti();
 }
 
-// Confetti temático en tonos dorado y turquesa
+// Confetti temático en tonos dorado y turquesa personalizados (#5dc1b9 y #8ae0db)
 function triggerGoldConfetti() {
   if (typeof confetti === 'function') {
     confetti({
-      particleCount: 85,
-      spread: 75,
+      particleCount: 90,
+      spread: 80,
       origin: { y: 0.6 },
-      colors: ['#d4b773', '#f7e7c4', '#176b7b', '#ffffff']
+      colors: ['#5dc1b9', '#8ae0db', '#d4b773', '#f7e7c4', '#ffffff']
     });
   }
 }
@@ -73,3 +72,47 @@ function updateCountdown() {
 // Iniciar actualización del contador
 setInterval(updateCountdown, 1000);
 updateCountdown();
+
+// Manejo del formulario RSVP conectado a Google Sheets
+function submitRSVP(event) {
+  event.preventDefault();
+  
+  const name = document.getElementById('guestName').value;
+  const attend20 = document.querySelector('input[name="attend20"]:checked')?.value;
+  const attend22 = document.querySelector('input[name="attend22"]:checked')?.value;
+  const submitBtn = document.getElementById('submitBtn');
+  
+  if (!name || !attend20 || !attend22) return;
+  
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Guardando...`;
+  if (window.lucide) lucide.createIcons();
+
+  // URL de la App Web de Google Apps Script
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwbXW6oUTrWYK08-nBUt5BY3GD4Ib_pDehZhrO84qTGNOOmji6hlpojBC5zzfn7rDYhmA/exec';
+
+  const formData = new FormData();
+  formData.append('Nombre', name);
+  formData.append('Viernes20_Defensa', attend20);
+  formData.append('Domingo22_Fiesta', attend22);
+
+  // Enviamos con mode: 'no-cors' para Apps Script
+  fetch(scriptURL, { 
+    method: 'POST', 
+    body: formData,
+    mode: 'no-cors'
+  })
+    .then(() => {
+      // Éxito real en el envío
+      document.getElementById('rsvpForm').classList.add('hidden');
+      document.getElementById('formSuccess').classList.remove('hidden');
+      triggerGoldConfetti();
+    })
+    .catch(error => {
+      console.error('Error al guardar:', error);
+      alert('Hubo un inconveniente al registrar tu respuesta. Por favor intenta nuevamente.');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `<i data-lucide="send" class="w-4 h-4"></i> Confirmar Asistencia`;
+      if (window.lucide) lucide.createIcons();
+    });
+}
