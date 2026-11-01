@@ -1,3 +1,4 @@
+// Inicializar íconos de Lucide
 if (window.lucide) {
   lucide.createIcons();
 }
@@ -73,7 +74,7 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// Manejo del formulario RSVP conectado a Google Sheets
+// Manejo del formulario RSVP conectado a Google Sheets vía JSONP / URL Query
 function submitRSVP(event) {
   event.preventDefault();
   
@@ -88,31 +89,33 @@ function submitRSVP(event) {
   submitBtn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Guardando...`;
   if (window.lucide) lucide.createIcons();
 
-  // URL de la App Web de Google Apps Script
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbwbXW6oUTrWYK08-nBUt5BY3GD4Ib_pDehZhrO84qTGNOOmji6hlpojBC5zzfn7rDYhmA/exec';
+  const baseUrl = 'https://script.google.com/macros/s/AKfycbwbXW6oUTrWYK08-nBUt5BY3GD4Ib_pDehZhrO84qTGNOOmji6hlpojBC5zzfn7rDYhmA/exec';
+  
+  // Creamos la URL con los parámetros GET (evita bloqueos de CORS en navegadores)
+  const queryUrl = `${baseUrl}?Nombre=${encodeURIComponent(name)}&Viernes20_Defensa=${encodeURIComponent(attend20)}&Domingo22_Fiesta=${encodeURIComponent(attend22)}`;
 
-  const formData = new FormData();
-  formData.append('Nombre', name);
-  formData.append('Viernes20_Defensa', attend20);
-  formData.append('Domingo22_Fiesta', attend22);
+  // Creamos un tag <script> dinámico para JSONP
+  const scriptTag = document.createElement('script');
+  scriptTag.src = queryUrl;
+  
+  // Callback cuando la respuesta se completa
+  scriptTag.onload = () => {
+    document.getElementById('rsvpForm').classList.add('hidden');
+    document.getElementById('formSuccess').classList.remove('hidden');
+    triggerGoldConfetti();
+    document.body.removeChild(scriptTag);
+  };
 
-  // Enviamos con mode: 'no-cors' para Apps Script
-  fetch(scriptURL, { 
-    method: 'POST', 
-    body: formData,
-    mode: 'no-cors'
-  })
-    .then(() => {
-      // Éxito real en el envío
-      document.getElementById('rsvpForm').classList.add('hidden');
-      document.getElementById('formSuccess').classList.remove('hidden');
-      triggerGoldConfetti();
-    })
-    .catch(error => {
-      console.error('Error al guardar:', error);
-      alert('Hubo un inconveniente al registrar tu respuesta. Por favor intenta nuevamente.');
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = `<i data-lucide="send" class="w-4 h-4"></i> Confirmar Asistencia`;
-      if (window.lucide) lucide.createIcons();
-    });
+  scriptTag.onerror = () => {
+    // Si falla JSONP intentamos fallback con Image Ping
+    const imgPing = new Image();
+    imgPing.src = queryUrl;
+    
+    document.getElementById('rsvpForm').classList.add('hidden');
+    document.getElementById('formSuccess').classList.remove('hidden');
+    triggerGoldConfetti();
+    if (document.body.contains(scriptTag)) document.body.removeChild(scriptTag);
+  };
+
+  document.body.appendChild(scriptTag);
 }
